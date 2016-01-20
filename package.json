@@ -1,8 +1,8 @@
 {
-  "name": "tempserver",
+  "name": "orderit-server",
   "version": "0.0.1",
   "description": "Server to handle data coming from OrderIt mobile apps",
-  "main": "TempServer.js",
+  "main": "OrderItServer.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
