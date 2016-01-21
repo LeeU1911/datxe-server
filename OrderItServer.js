@@ -1,18 +1,26 @@
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
 
 const PORT= process.env.PORT || 8080;
+
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', function (req, res) {
   res.send('{"response":"success"}');
 });
 
 app.post('/', function (req, res) {
-	req.on('data', function(data){
-		console.log(data);
-	});
-
-  res.send('{"response":"success"}');
+  console.log("request body ");
+  console.dir(req.body);
+  var username = req.body.username;
+  if(username == 'staff2'){
+    res.send('{"response":"failure"}');
+  }else if(username == 'staff3'){
+    res.send('{"response":"notfound"}');
+  }else{
+    res.send('{"response":"success"}');
+  }
 });
 
 var server = app.listen(PORT, function () {
